@@ -1,0 +1,51 @@
+PODS:
+  - AEXML (4.6.0)
+  - FontBlaster (4.1.0)
+  - MenuItemKit (3.1.3)
+  - Realm (5.5.0):
+    - Realm/Headers (= 5.5.0)
+  - Realm/Headers (5.5.0)
+  - RealmSwift (5.5.0):
+    - Realm (= 5.5.0)
+  - SSZipArchive (2.2.3)
+  - ZFDragableModalTransition (0.6)
+
+DEPENDENCIES:
+  - AEXML (= 4.6.0)
+  - FontBlaster (= 4.1.0)
+  - MenuItemKit (= 3.1.3)
+  - RealmSwift (= 5.5.0)
+  - SSZipArchive (= 2.2.3)
+  - ZFDragableModalTransition (from `https://github.com/alexpopov/ZFDragableModalTransition`, tag `merge-carthage-into-zoonooz`)
+
+SPEC REPOS:
+  trunk:
+    - AEXML
+    - FontBlaster
+    - MenuItemKit
+    - Realm
+    - RealmSwift
+    - SSZipArchive
+
+EXTERNAL SOURCES:
+  ZFDragableModalTransition:
+    :git: https://github.com/alexpopov/ZFDragableModalTransition
+    :tag: merge-carthage-into-zoonooz
+
+CHECKOUT OPTIONS:
+  ZFDragableModalTransition:
+    :git: https://github.com/alexpopov/ZFDragableModalTransition
+    :tag: merge-carthage-into-zoonooz
+
+SPEC CHECKSUMS:
+  AEXML: 2fbb73d8724797ed2cde888731e176fa4d44dd83
+  FontBlaster: 127aa66419478d1c62926c7fdb39841633344a45
+  MenuItemKit: 0f850e630b0a3d2bd80fec54db87ce0d2077ada2
+  Realm: fb399d76f44042e5cdfc630f33828fdb4d077345
+  RealmSwift: 3b7e62356207ef16d34de4e55d475163bd2062bb
+  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  ZFDragableModalTransition: ae3c20cdd606f4affcf150d977c00d2c786e49eb
+
+PODFILE CHECKSUM: 4167225fb531470279f15a14b8f9808770c15665
+
+COCOAPODS: 1.10.0
