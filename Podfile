@@ -5,7 +5,7 @@ def shared
   pod 'SSZipArchive', '2.2.3'
   pod 'MenuItemKit', '3.1.3'
   pod 'AEXML', '4.6.0'
-  pod 'RealmSwift', '5.5.0'
+  pod 'RealmSwift', '~> 10.5.1'
   pod 'FontBlaster', '4.1.0'
   pod 'ZFDragableModalTransition', :git => 'https://github.com/alexpopov/ZFDragableModalTransition', :tag => 'merge-carthage-into-zoonooz'
 end
