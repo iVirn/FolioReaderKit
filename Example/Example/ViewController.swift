@@ -23,6 +23,8 @@ class ViewController: UIViewController {
 
         self.setCover(self.bookOne, index: 0)
         self.setCover(self.bookTwo, index: 1)
+      
+        self.modalPresentationStyle = .fullScreen
     }
 
     private func readerConfiguration(forEpub epub: Epub) -> FolioReaderConfig {
@@ -64,7 +66,12 @@ class ViewController: UIViewController {
         }
 
         let readerConfiguration = self.readerConfiguration(forEpub: epub)
-        folioReader.presentReader(parentViewController: self, withEpubPath: bookPath, andConfig: readerConfiguration, shouldRemoveEpub: false)
+        let viewController = BookReaderContainerViewController(withConfig: readerConfiguration, folioReader: folioReader, epubPath: bookPath)
+        viewController.modalPresentationStyle = .fullScreen
+      
+        present(viewController, animated: true, completion: nil)
+      
+//        folioReader.presentReader(parentViewController: self, withEpubPath: bookPath, andConfig: readerConfiguration, shouldRemoveEpub: false)
     }
 
     private func setCover(_ button: UIButton?, index: Int) {
@@ -95,4 +102,26 @@ extension ViewController {
 
         self.open(epub: epub)
     }
+}
+
+class BookReaderContainerViewController: FolioReaderContainer {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+  }
+  
+  override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    super.traitCollectionDidChange(previousTraitCollection)
+    
+    if #available(iOS 13.0, *) {
+      if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+        if traitCollection.userInterfaceStyle == .dark {
+          folioReader.nightMode = true
+        } else if traitCollection.userInterfaceStyle == .light {
+          folioReader.nightMode = false
+        }
+      }
+    }
+  }
 }
