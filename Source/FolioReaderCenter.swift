@@ -50,10 +50,13 @@ open class FolioReaderCenter: UIViewController, UICollectionViewDelegate, UIColl
     /// The collection view with pages
     open var collectionView: UICollectionView!
     
+    open var totalPages: Int = 0
+    open var currentPageNumber: Int = 0
+    
     let collectionViewLayout = UICollectionViewFlowLayout()
     var loadingView: UIActivityIndicatorView!
     var pages: [String]!
-    var totalPages: Int = 0
+    
     var tempFragment: String?
     var animator: ZFModalTransitionAnimator!
     var pageIndicatorView: FolioReaderPageIndicator?
@@ -67,7 +70,6 @@ open class FolioReaderCenter: UIViewController, UICollectionViewDelegate, UIColl
     var pageScrollDirection = ScrollDirection()
     var nextPageNumber: Int = 0
     var previousPageNumber: Int = 0
-    var currentPageNumber: Int = 0
     var pageWidth: CGFloat = 0.0
     var pageHeight: CGFloat = 0.0
 
@@ -1051,7 +1053,7 @@ open class FolioReaderCenter: UIViewController, UICollectionViewDelegate, UIColl
      - parameter completion: A Closure which is called if the page change is completed.
      */
     public func changePageWith(page: Int, animated: Bool = false, completion: (() -> Void)? = nil) {
-        if page > 0 && page-1 < totalPages {
+        if page > 0 && page - 1 < totalPages {
             let indexPath = IndexPath(row: page-1, section: 0)
             changePageWith(indexPath: indexPath, animated: animated, completion: { () -> Void in
                 self.updateCurrentPage {
