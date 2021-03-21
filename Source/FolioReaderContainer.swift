@@ -16,7 +16,7 @@ open class FolioReaderContainer: UIViewController {
     
     // Mark those property as public so they can accessed from other classes/subclasses.
     public var epubPath: String
-	public var unzipPath: String?
+    public var unzipPath: String?
     public var book: FRBook
     
     public var centerNavigationController: UINavigationController?
@@ -42,7 +42,7 @@ open class FolioReaderContainer: UIViewController {
         self.readerConfig = config
         self.folioReader = folioReader
         self.epubPath = path
-		self.unzipPath = unzipPath
+        self.unzipPath = unzipPath
         self.shouldRemoveEpub = removeEpub
         self.book = FRBook()
 
@@ -136,10 +136,12 @@ open class FolioReaderContainer: UIViewController {
         }
 
         self.centerNavigationController?.setNavigationBarHidden(self.readerConfig.shouldHideNavigationOnTap, animated: false)
+      
         if let _centerNavigationController = self.centerNavigationController {
             self.view.addSubview(_centerNavigationController.view)
             self.addChild(_centerNavigationController)
         }
+      
         self.centerNavigationController?.didMove(toParent: self)
 
         if (self.readerConfig.hideBars == true) {
